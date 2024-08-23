@@ -8,15 +8,15 @@ interface SearchProps {
 }
 
 const Search = ({ updateSearchParams }:SearchProps) => {
-    const [artist, setArtist] = useState();
-    const [song, setSong] = useState();
+    const [artist, setArtist] = useState<string | null>(null);
+    const [song, setSong] = useState<string | null>(null);
 
-    const inputArtist = (event: { target: { value: SetStateAction<string | null>; }; }) => {
-        setArtist(event.target.value)
+    const inputArtist = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setArtist(event.target.value);
     }
 
-    const inputSong = (event: { target: { value: SetStateAction<string | null>; }; }) => {
-        setSong(event.target.value)
+    const inputSong = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setSong(event.target.value);
     }
 
     const searchParams:string = `/${artist}/${song}`
